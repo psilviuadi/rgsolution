@@ -16,6 +16,13 @@ class EmployeeController extends Controller
 
     public function getRGEmployees(Request $request)
     {
-        return $this->rewardGatewayService->getEmployeesList();
+        $data = $this->rewardGatewayService->getEmployeesList();
+        return $data;
+    }
+
+    public function getHomePage()
+    {
+        $employees = $this->rewardGatewayService->getEmployeesList();
+        return view('welcome')->with('employees', $employees);
     }
 }

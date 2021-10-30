@@ -13,9 +13,18 @@ class RewardGatewayService
     {
         $this->getRGListData();
         if ($this->rgResponseCode === 200) {
-            return $this->rgResponse;
+            return array_slice($this->rgResponse, 0, 10);
         }
-        return ['NOT'=>"GOOD"];
+        return [
+            [
+                "uuid" => "uuid",
+                "company" => "company",
+                "bio" => "bio",
+                "name" => "name",
+                "title" => "title",
+                "avatar" => 0
+            ]
+        ];
     }
 
     private function getRGListData()
