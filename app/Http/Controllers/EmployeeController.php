@@ -23,6 +23,9 @@ class EmployeeController extends Controller
     public function getHomePage()
     {
         $employees = $this->rewardGatewayService->getEmployeesList();
-        return view('welcome')->with('employees', $employees);
+        if (!is_null($employees)) {
+            return view('welcome')->with('employees', $employees);
+        }
+        return abort(500);
     }
 }

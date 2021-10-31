@@ -11,20 +11,11 @@ class RewardGatewayService
 
     public function getEmployeesList()
     {
+        return null;
         $this->getRGListData();
         if ($this->rgResponseCode === 200) {
             return array_slice($this->rgResponse, 0, 10);
         }
-        return [
-            [
-                "uuid" => "uuid",
-                "company" => "company",
-                "bio" => "bio",
-                "name" => "name",
-                "title" => "title",
-                "avatar" => 0
-            ]
-        ];
     }
 
     private function getRGListData()
