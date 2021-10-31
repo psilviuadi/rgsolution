@@ -18,7 +18,11 @@
                     @foreach($employees as $user)
                         <li class="d-flex flex-row py-2" v-for="user in users">
                             <div class="px-3">
-                                <img src="img/user.png" alt="User Icon" width="48" height="48">
+                                @if(str_starts_with($user['avatar'], 'data:image/'))
+                                    <img src="{{$user['avatar']}}" width="48" height="48">
+                                @else
+                                    <img src="img/user.png" width="48" height="48">
+                                @endif
                             </div>
                             <div class="w-100">
                                 <h5>{{$user['name']}}</h5>
@@ -31,4 +35,7 @@
             </div>
         </div>
     </body>
+    <footer>
+        <script type="text/javascript" src="/js/app.js"></script>
+    </footer>
 </html>

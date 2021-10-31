@@ -2062,6 +2062,10 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$('img').on("error", function () {
+  $(this).attr('src', 'img/user.png');
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
